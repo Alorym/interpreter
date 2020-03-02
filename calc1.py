@@ -71,6 +71,11 @@ class Interpreter(object):
             token = Token(PLUS, current_char)
             self.pos += 1
             return token
+        
+        if current_char == ' ':
+            self.pos += 1
+            # recursively calls get_next_token and skips whitespace
+            return self.get_next_token()
 
         self.error()
 
@@ -81,6 +86,7 @@ class Interpreter(object):
         # otherwise raise an exception.
         if self.current_token.type == token_type:
             self.current_token = self.get_next_token()
+            print('token matches')
         else:
             self.error()
 
@@ -107,6 +113,8 @@ class Interpreter(object):
         # has been successfully found and the method can just
         # return the result of adding two integers, thus
         # effectively interpreting client input
+        print(left.value)
+        print(right.value)
         result = left.value + right.value
         return result
 
