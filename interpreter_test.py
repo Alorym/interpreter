@@ -15,3 +15,11 @@ def test_multicharintegers():
     interpreter = Interpreter('1400+4325')
     result = interpreter.expr()
     assert result == 5725
+def test_multiplication():
+    interpreter = Interpreter('60*2')
+    result = interpreter.expr()
+    assert result == 120
+def test_divison():
+    interpreter = Interpreter('30/2')
+    result = interpreter.expr()
+    assert result == 15.0
