@@ -11,3 +11,7 @@ def test_subtraction():
     interpreter = Interpreter('7-2')
     result = interpreter.expr()
     assert result == 5
+def test_multicharintegers():
+    interpreter = Interpreter('1400+4325')
+    result = interpreter.expr()
+    assert result == 5725
